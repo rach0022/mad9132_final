@@ -3,4 +3,8 @@
     <string name="search_button_text">Search</string>
     <string name="user_data_key">USER_DATA</string>
     <string name="search_user_hint">Search</string>
+    <string name="user_score">Score: %1$s</string>
+    <string name="user_login">Login: %1$s</string>
+    <string name="user_id">ID: %1$s</string>
+    <string name="image_description">Avatar</string>
 </resources>
