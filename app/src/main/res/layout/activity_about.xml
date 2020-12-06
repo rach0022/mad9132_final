@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/IMG_20200617_183833"
-        android:contentDescription="The image of one of the creators Ravi Rachamalla" />
+        android:contentDescription="@string/app_creator_image" />
 
     <TextView
         android:id="@+id/textView"
