@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final Project</string>
+    <string name="app_name">Github Search</string>
     <string name="search_button_text">Search</string>
     <string name="user_data_key">USER_DATA</string>
     <string name="search_user_hint">Search</string>
@@ -7,4 +7,9 @@
     <string name="user_login">Login: %1$s</string>
     <string name="user_id">ID: %1$s</string>
     <string name="image_description">Avatar</string>
+    <string name="app_name_version">Github Search v1.0.0</string>
+    <string name="app_creator">Created by Ravi Rachamalla</string>
+    <string name="app_company">Algonquin College</string>
+    <string name="app_email">rach0022@algonquinlive.com</string>
+    <string name="app_website">https://github.com/rach0022</string>
 </resources>
