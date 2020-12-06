@@ -2,6 +2,7 @@ package ravi.partner.finalproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import ravi.partner.finalproject.databinding.ActivityResultsBinding
 
 class ResultsActivity : AppCompatActivity() {
@@ -24,10 +25,18 @@ class ResultsActivity : AppCompatActivity() {
         // these are difficult times, we must suport the action bar
         supportActionBar?.title = "${data.size} Results"
 
+        // now to attach the data to the recyler view
+        binding.recyclerViewMain.layoutManager = LinearLayoutManager(this)
+
+        // hook up the adapter to the recycler view using the data from our android intent (bundle)
+        binding.recyclerViewMain.adapter = MainAdapter(data)
+
+
+
         // these are 4 main steps to creating a recycler view
         // [x] declare the recycler view in activity layout
-        // [ ] create hte custom xml layout for the recycler view
-        // [ ] create a RecyclerView Adapter (create a view holder for view items, then connect data source)
+        // [x] create the custom xml layout for the recycler view
+        // [x] create a RecyclerView Adapter (create a view holder for view items, then connect data source)
         // [ ] attach the data to the recycler view
     }
 }
