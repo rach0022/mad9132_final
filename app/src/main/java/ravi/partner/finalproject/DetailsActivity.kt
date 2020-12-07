@@ -75,6 +75,12 @@ class DetailsActivity : AppCompatActivity() {
 
                     binding.nameTextView.text =  getString(R.string.user_name, result?.name ?: "unknown")
                     binding.locationTextView.text =  getString(R.string.user_location, result?.location ?: "unknown")
+                    binding.companyTextView.text =  getString(R.string.user_company, result?.company ?: "unknown")
+                    binding.followersTextView.text =  getString(R.string.user_followers, result?.followers ?: "unknown")
+                    binding.publicGistsTextView.text =  getString(R.string.user_public_gists, result?.public_gists ?: "0")
+                    binding.publicReposTextView.text =  getString(R.string.user_public_repos, result?.public_repos ?: "0")
+                    binding.lastUpdatedTextView.text =  getString(R.string.user_last_update, result?.updated_at?.replaceAfter(delimiter = 'T', replacement = "") ?: "Never")
+                    binding.accountCreatedTextView.text =  getString(R.string.user_account_creation, result?.created_at?.replaceAfter(delimiter = 'T', replacement = "") ?: "Never")
 
                 }
             }
