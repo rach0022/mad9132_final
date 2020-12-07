@@ -10,12 +10,12 @@
         android:id="@+id/appCreatorFirst"
         android:layout_width="210dp"
         android:layout_height="298dp"
+        android:contentDescription="@string/app_creator_image"
         android:text="@string/app_name_version"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/creator_ravi"
-        android:contentDescription="@string/app_creator_image" />
+        app:srcCompat="@drawable/creator_ravi" />
 
     <TextView
         android:id="@+id/textView"

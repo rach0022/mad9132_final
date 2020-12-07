@@ -23,4 +23,5 @@
     <string name="user_account_creation">Account Created: %1$s</string>
     <string name="placeholder_url">url</string>
     <string name="url_key">URL_KEY</string>
+    <string name="menu_about">About</string>
 </resources>

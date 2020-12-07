@@ -3,6 +3,9 @@ package ravi.partner.finalproject
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import ravi.partner.finalproject.databinding.ActivityMainBinding
@@ -29,6 +32,31 @@ class MainActivity : AppCompatActivity() {
             fetchData()
         }
     }
+
+    // region Main Menu with About Section
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater = MenuInflater(this)
+        inflater.inflate(R.menu.main_menu, menu)
+
+        return super.onCreateOptionsMenu(menu)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.menu_about -> {
+                val intent = Intent(TheApp.context, AboutActivity::class.java) // add intent
+                startActivity(intent)
+                return true
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    // endregion
 
     private fun fetchData() {
         //create a retroFit Object, the object that preforms all of our fetching
