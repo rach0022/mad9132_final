@@ -13,4 +13,14 @@
     <string name="app_company">Algonquin College</string>
     <string name="app_email">rach0022@algonquinlive.com</string>
     <string name="app_website">https://github.com/rach0022</string>
+    <string name="user_name">Name: %1$s</string>
+    <string name="user_location">Location: %1$s</string>
+    <string name="user_company">Company: %1$s</string>
+    <string name="user_followers">Followers: %1$s</string>
+    <string name="user_public_gists">Public Gists: %1$s</string>
+    <string name="user_public_repos">Public Repos: %1$s</string>
+    <string name="user_last_update">Last Update: %1$s</string>
+    <string name="user_account_creation">Account Created: %1$s</string>
+    <string name="placeholder_url">url</string>
+    <string name="url_key">URL_KEY</string>
 </resources>
