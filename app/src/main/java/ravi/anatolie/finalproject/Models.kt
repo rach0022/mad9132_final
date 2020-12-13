@@ -1,4 +1,4 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import retrofit2.Call
 import retrofit2.http.GET
@@ -72,9 +72,10 @@ User Details:
 // endregion
 // region REST API Interface
 // an interface to preform the fetch
-interface RestAPI{
+// updated version with additional query
+interface RestApi {
     @GET("users?")
-    fun getUserData(@Query("q") searchName: String):
+    fun getUserData(@Query("q") searchName: String, @Query("per_page")perPage: Int = 30 ):
             Call<ResponseDataClass>
 }
 // endregion

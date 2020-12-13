@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ravi.partner.finalproject">
+    package="ravi.anatolie.finalproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".TheApp"
+        android:name="ravi.anatolie.finalproject.TheApp"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
-        <activity android:name=".MainActivity"
+        <activity android:name="ravi.anatolie.finalproject.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WebViewActivity"
+        <activity android:name="ravi.anatolie.finalproject.WebViewActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".DetailsActivity"/>
-        <activity android:name=".DetailsActivity"
+            android:parentActivityName="ravi.anatolie.finalproject.DetailsActivity"/>
+        <activity android:name="ravi.anatolie.finalproject.DetailsActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".ResultsActivity"/>
-        <activity android:name=".ResultsActivity"
+            android:parentActivityName="ravi.anatolie.finalproject.ResultsActivity"/>
+        <activity android:name="ravi.anatolie.finalproject.ResultsActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="ravi.anatolie.finalproject.MainActivity"
             />
-        <activity android:name=".AboutActivity"
+        <activity android:name="ravi.anatolie.finalproject.AboutActivity"
             android:label="@string/menu_about"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="ravi.anatolie.finalproject.MainActivity"
             />
     </application>
 

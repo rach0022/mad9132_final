@@ -1,4 +1,4 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

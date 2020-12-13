@@ -27,4 +27,10 @@
     <string name="placeholder_url">url</string>
     <string name="url_key">URL_KEY</string>
     <string name="menu_about">About</string>
+    <string name="min_followers">min. # followers</string>
+    <string name="min_repos">min. # repos</string>
+    <string name="repos_hint">repos</string>
+    <string name="page_size">page size</string>
+    <string name="followers">followers</string>
+
 </resources>

@@ -1,14 +1,16 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import ravi.partner.finalproject.databinding.ActivityMainBinding
+import ravi.anatolie.finalproject.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,9 +20,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     // region Main Activity Properties
-    val BASE_URL = "https://api.github.com/search/"
-    var searchString = ""
+    private val baseURL = "https://api.github.com/search/"
+    private var searchString = ""
     private lateinit var binding: ActivityMainBinding
+
+    // these properties are used for search
+    private val minPage = 1
+    private val maxPage = 100
+    private val startPage = 30
+    private val maxRepos = 1000
+    private val maxFollowers = 10000
+
     // endregion
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +41,16 @@ class MainActivity : AppCompatActivity() {
         binding.searchButton.setOnClickListener{
             fetchData()
         }
+
+        // set up the number pickers with the minimum values and max values
+        binding.perPageNumberPicker.minValue = minPage
+        binding.perPageNumberPicker.maxValue = maxPage
+        binding.perPageNumberPicker.value = startPage
+
+        // these are input filters that make sure we only get the input that we want in this app
+        // using hte minimum value of zero and max value of amxRepos and maxFollowers
+        binding.minReposEditText.filters  = arrayOf<InputFilter>(InputFilterMinMax(0, maxRepos))
+        binding.minFollowersEditText.filters = arrayOf<InputFilter>(InputFilterMinMax(0, maxFollowers))
     }
 
     // region Main Menu with About Section
@@ -62,18 +82,35 @@ class MainActivity : AppCompatActivity() {
         //create a retroFit Object, the object that preforms all of our fetching
         // GSON is a library that converts data into json and json into objects
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
         // create our reference to the RESTAPI object
-        val restAPI = retrofit.create(RestAPI::class.java)
+        val restAPI = retrofit.create(RestApi::class.java)
 
-        // get the search from the user text input
-        searchString = binding.searchUser.text.toString()
+        // these 4 lines of new code will add the minFollower and minRepos from the number pickers to
+        // to the request and will set the fields to zero if there are no values
+        if(TextUtils.isEmpty(binding.minFollowersEditText.text)){
+            binding.minFollowersEditText.setText("0")
+        }
+
+        if(TextUtils.isEmpty(binding.minReposEditText.text)){
+            binding.minReposEditText.setText("0")
+        }
+
+        //must use shared preferences to save these values
+        val minNumberOfFollowers = binding.minFollowersEditText.text.toString().toInt()
+
+        val minNumberOfRepos = binding.minReposEditText.text.toString().toInt()
+
+        // get the search from the user text input and number input for the min repos and followers
+        //searchString = binding.searchUser.text.toString()
+        searchString = "${binding.searchUser.text} repos:>=$minNumberOfRepos followers:>=$minNumberOfFollowers"
 
         // make the call to the RESTAPI (github) and get the user data
-        val call = restAPI.getUserData(searchString)
+        //val call = restAPI.getUserData(searchString)
+        val call = restAPI.getUserData(searchString, binding.perPageNumberPicker.value)
 
         // make the call asyncrhnously and use a callback when the GET is done
         call.enqueue(object: Callback<ResponseDataClass>{

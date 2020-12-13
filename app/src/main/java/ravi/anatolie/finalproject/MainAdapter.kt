@@ -1,4 +1,4 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import ravi.partner.finalproject.databinding.DataRowBinding
+import ravi.anatolie.finalproject.databinding.DataRowBinding
 
 // our MainAdapter Interface
 class MainAdapter(private val responseDataClass: ArrayList<Users>):

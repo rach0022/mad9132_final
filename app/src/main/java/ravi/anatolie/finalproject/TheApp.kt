@@ -1,4 +1,4 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import android.app.Application
 import android.content.Context

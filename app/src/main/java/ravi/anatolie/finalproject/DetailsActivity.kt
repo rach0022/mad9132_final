@@ -1,4 +1,4 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
 import okhttp3.*
-import ravi.partner.finalproject.databinding.ActivityDetailsBinding
+import ravi.anatolie.finalproject.databinding.ActivityDetailsBinding
 import java.io.IOException
 
 class DetailsActivity : AppCompatActivity() {

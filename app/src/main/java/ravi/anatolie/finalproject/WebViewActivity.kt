@@ -1,8 +1,8 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ravi.partner.finalproject.databinding.ActivityWebViewBinding
+import ravi.anatolie.finalproject.databinding.ActivityWebViewBinding
 
 class WebViewActivity : AppCompatActivity() {
 

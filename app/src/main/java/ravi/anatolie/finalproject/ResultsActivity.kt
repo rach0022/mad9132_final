@@ -1,9 +1,9 @@
-package ravi.partner.finalproject
+package ravi.anatolie.finalproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import ravi.partner.finalproject.databinding.ActivityResultsBinding
+import ravi.anatolie.finalproject.databinding.ActivityResultsBinding
 
 class ResultsActivity : AppCompatActivity() {
 
