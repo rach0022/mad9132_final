@@ -136,7 +136,6 @@ class MainActivity : AppCompatActivity() {
         searchString = "${binding.searchUser.text} repos:>=$minNumberOfRepos followers:>=$minNumberOfFollowers"
 
         // make the call to the RESTAPI (github) and get the user data
-        //val call = restAPI.getUserData(searchString)
         val call = restAPI.getUserData(searchString, binding.perPageNumberPicker.value)
 
         // make the call asynchronously and use a callback when the GET is done
