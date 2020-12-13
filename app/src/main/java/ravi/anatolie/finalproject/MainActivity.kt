@@ -3,8 +3,10 @@ package ravi.anatolie.finalproject
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.text.InputFilter
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -51,6 +53,30 @@ class MainActivity : AppCompatActivity() {
         // using hte minimum value of zero and max value of amxRepos and maxFollowers
         binding.minReposEditText.filters  = arrayOf<InputFilter>(InputFilterMinMax(0, maxRepos))
         binding.minFollowersEditText.filters = arrayOf<InputFilter>(InputFilterMinMax(0, maxFollowers))
+
+        // will set the text to zero when the app launches
+        binding.minReposEditText.setText("0")
+        binding.minFollowersEditText.setText("0")
+
+        // all 3 overrides are required
+        // these are the text change listeners that will run the code supplied when the following events happen
+        binding.searchUser.addTextChangedListener(object : TextWatcher {
+            // before text changed (text in its current state)
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+
+            }
+
+            // when the text is changed we will enable the search button to be used
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                binding.searchButton.isEnabled = binding.searchUser.text.toString().trim().isNotEmpty()
+            }
+
+            // after text is changed, if we have no text then we will disable the button
+            override fun afterTextChanged(s: Editable) {
+                binding.searchButton.isEnabled = s.isNotEmpty()
+                binding.noResultsMessage.text = ""
+            }
+        })
     }
 
     // region Main Menu with About Section
@@ -128,6 +154,9 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(TheApp.context, ResultsActivity::class.java) // create the intent
                     intent.putExtra(getString(R.string.user_data_key), users) // add the data to the bundle
                     startActivity(intent) // start the next activity and send the bundle with our intent
+                } else { // if we get no search results lets display a message to the user and disable the button
+                    binding.noResultsMessage.text = getString(R.string.no_results, binding.searchUser.text)
+                    binding.searchButton.isEnabled = false
                 }
             }
 

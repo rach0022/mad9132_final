@@ -23,6 +23,7 @@
         android:importantForAutofill="no" />
 
     <Button
+        android:enabled="false"
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,5 +110,18 @@
         app:layout_constraintTop_toBottomOf="@+id/searchUser"
         app:layout_constraintVertical_bias="0.083"
         android:autofillHints="10"/>
+
+    <TextView
+        android:id="@+id/noResultsMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/searchUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
