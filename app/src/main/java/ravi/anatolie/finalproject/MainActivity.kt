@@ -58,6 +58,28 @@ class MainActivity : AppCompatActivity() {
         binding.minReposEditText.setText("0")
         binding.minFollowersEditText.setText("0")
 
+        // check if we have anything saved in sharedPreferences:
+        val sharedPreferences = SharedPreferences()
+
+        // check if we have a repos key value set if not lets just set a default value
+        if(sharedPreferences.contains(getString(R.string.repos_key))) {
+            binding.minReposEditText.setText(sharedPreferences.getValueString(getString(R.string.repos_key)))
+        } else {
+            binding.minReposEditText.setText("0")
+        }
+
+        // check if we have anything saved in the followers key
+        if(sharedPreferences.contains(getString(R.string.followers_key))) {
+            binding.minFollowersEditText.setText(sharedPreferences.getValueString(getString(R.string.followers_key)))
+        } else {
+            binding.minFollowersEditText.setText("0")
+        }
+
+        // check if we have anything saved for the page key
+//        if(sharedPreferences.contains(getString(R.string.page_size_key))) {
+//            binding.perPageNumberPicker.value = sharedPreferences.getValueString(getString(R.string.page_size_key)).toString().toInt()
+//        }
+
         // all 3 overrides are required
         // these are the text change listeners that will run the code supplied when the following events happen
         binding.searchUser.addTextChangedListener(object : TextWatcher {
@@ -78,6 +100,28 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+    override fun onPause() {
+        super.onPause()
+
+        // save the values from the min repos, followers and search into the shared preferences
+        // to be loaded when the app is resumed
+        val sharedPreferences= SharedPreferences()
+
+        // set the values from the bindings
+        // if the value is not empty after being trimmed, set it in sharedPrefernces
+        if (binding.minFollowersEditText.text.toString().trim().isNotEmpty()){
+            sharedPreferences.setValueString(getString(R.string.followers_key), binding.minFollowersEditText.text.toString())
+        }
+
+        if(binding.minReposEditText.text.toString().trim().isNotEmpty()){
+            sharedPreferences.setValueString(getString(R.string.repos_key), binding.minReposEditText.text.toString())
+        }
+
+        // since number picker always has a value lets just save whatever is in there
+        sharedPreferences.setValueString(getString(R.string.page_size_key), binding.perPageNumberPicker.toString())
+    }
+    // endregion
 
     // region Main Menu with About Section
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
