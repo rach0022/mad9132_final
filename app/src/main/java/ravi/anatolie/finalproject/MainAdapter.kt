@@ -1,5 +1,5 @@
 package ravi.anatolie.finalproject
-
+// created by Ravi and Anatolie on December 11th, 2020
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ravi.anatolie.finalproject.databinding.DataRowBinding
 
+// region MainAdapter
 // our MainAdapter Interface
 class MainAdapter(private val responseDataClass: ArrayList<Users>):
 RecyclerView.Adapter<CustomViewHolderClass>(){
@@ -19,7 +20,7 @@ RecyclerView.Adapter<CustomViewHolderClass>(){
         return CustomViewHolderClass(cellForRow)
     }
 
-    // set the values of the recycler view row based on the postion in the recycler view and our
+    // set the values of the recycler view row based on the position in the recycler view and our
     // custom view holder defined above
     override fun onBindViewHolder(holder: CustomViewHolderClass, position: Int) {
         holder.binding.loginTextView.text = TheApp.context.getString(R.string.user_login, responseDataClass[position].login)
@@ -39,9 +40,11 @@ RecyclerView.Adapter<CustomViewHolderClass>(){
     override fun getItemCount(): Int = responseDataClass.size
 
 }
+// endregion
 
+// region CustomViewHolderClass
 // constructor will take in the parameters of the view, a login string and a users
-class CustomViewHolderClass(val view: View, var login: String = "",
+class CustomViewHolderClass(private val view: View, var login: String = "",
                             var user: Users? = null) // a single Users object from ResponseDataClass/Users classes
     : RecyclerView.ViewHolder(view){
     // get a reference to the binding  of this view
@@ -63,7 +66,9 @@ class CustomViewHolderClass(val view: View, var login: String = "",
 
     // kotlin doesn't support static so we make a companion object that stores our values
     companion object{
-        val titleKey = "ACTIONBAR_TITLE"
-        val objectKey = "ITEM_DATA"
+        const val titleKey = "ACTIONBAR_TITLE"
+        const val objectKey = "ITEM_DATA"
     }
 }
+
+// endregion

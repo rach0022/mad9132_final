@@ -1,5 +1,5 @@
 package ravi.anatolie.finalproject
-
+// created by Ravi and Anatolie on December 11th, 2020
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
-        // set up the view binding, UI is now avaliable to us
+        // set up the view binding, UI is now available to us
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.searchButton.setOnClickListener{
@@ -104,6 +104,7 @@ class MainActivity : AppCompatActivity() {
 
     // endregion
 
+    // region FetchData function to preform our request
     private fun fetchData() {
         //create a retroFit Object, the object that preforms all of our fetching
         // GSON is a library that converts data into json and json into objects
@@ -138,7 +139,7 @@ class MainActivity : AppCompatActivity() {
         //val call = restAPI.getUserData(searchString)
         val call = restAPI.getUserData(searchString, binding.perPageNumberPicker.value)
 
-        // make the call asyncrhnously and use a callback when the GET is done
+        // make the call asynchronously and use a callback when the GET is done
         call.enqueue(object: Callback<ResponseDataClass>{
             override fun onResponse(call: Call<ResponseDataClass>, response: Response<ResponseDataClass>) {
                 val responseBody = response.body()
@@ -148,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                 val length = users?.size ?: 0
 
                 // now to choose if we want to display data (if we get results)
-                // no point in displaying data if we dont have any
+                // no point in displaying data if we don't have any
                 if (length > 0){
                     // the intent has our target Activity (ResultsActivity)
                     val intent = Intent(TheApp.context, ResultsActivity::class.java) // create the intent
@@ -166,6 +167,8 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    // endregion
 
     // Adding the extension method from RandomWebImageApp into the MainActivity
     fun Context.toast(message: String) {

@@ -1,5 +1,5 @@
 package ravi.anatolie.finalproject
-
+// created by Ravi and Anatolie on December 11th, 2020
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -79,7 +79,7 @@ interface RestApi {
             Call<ResponseDataClass>
 }
 // endregion
-
+// region ResponseDataClass
 data class ResponseDataClass(
         val incomplete_results: Boolean = false,
         val items: ArrayList<Users>,
@@ -144,3 +144,5 @@ data class UserDetails(
     val updated_at: String? = "",
     val url: String? = ""
 )
+
+// endregion

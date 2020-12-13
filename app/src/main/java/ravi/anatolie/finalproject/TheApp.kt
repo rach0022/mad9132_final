@@ -1,5 +1,5 @@
 package ravi.anatolie.finalproject
-
+// created by Ravi and Anatolie on December 11th, 2020
 import android.app.Application
 import android.content.Context
 
@@ -7,6 +7,8 @@ import android.content.Context
  * Created by Ravi Rachamalla on November 06, 2020
 */
 class TheApp : Application(){
+
+    // region theApp methods
     override fun onCreate(){
         super.onCreate()
         context = applicationContext
@@ -19,5 +21,7 @@ class TheApp : Application(){
         lateinit var context: Context
             private set
     }
+
+    // endregion
 
 }

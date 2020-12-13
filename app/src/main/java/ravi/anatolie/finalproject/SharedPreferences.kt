@@ -1,5 +1,5 @@
 package ravi.anatolie.finalproject
-
+// created by Ravi and Anatolie on December 11th, 2020
 /*
  * Created by Tony Davidson on Nov 12, 2020
  *
@@ -46,7 +46,7 @@ class SharedPreferences(private val context: Context = TheApp.context) {
         return sharedPref.all
     }
 
-    // endregion
+
 
     // region Set methods
     fun save(KEY_NAME: String, text: String) {
@@ -88,5 +88,6 @@ class SharedPreferences(private val context: Context = TheApp.context) {
         return sharedPref.getBoolean(KEY_NAME, false)
     }
 
+    // endregion
     // endregion
 }

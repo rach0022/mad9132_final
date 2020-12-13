@@ -1,5 +1,5 @@
 package ravi.anatolie.finalproject
-
+// created by Ravi and Anatolie on December 11th, 2020
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -50,7 +50,7 @@ class DetailsActivity : AppCompatActivity() {
         fetchJson(data.url)
     }
 
-    //method to fetch the json from the currently selected user fron the intent
+    //method to fetch the json from the currently selected user from the intent
     private fun fetchJson(url: String){
 
         // We are using okhttp client here, not Retrofit2
