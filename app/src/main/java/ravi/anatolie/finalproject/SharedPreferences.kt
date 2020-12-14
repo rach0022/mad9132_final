@@ -72,6 +72,24 @@ class SharedPreferences(private val context: Context = TheApp.context) {
         editor.apply()
     }
 
+    fun setValueInt(KEY_NAME: String, value: Int){
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putInt(KEY_NAME, value)
+        editor.apply()
+    }
+
+    fun setValueFloat(KEY_NAME: String, value: Float){
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putFloat(KEY_NAME, value)
+        editor.apply()
+    }
+
+    fun setValueBoolean(KEY_NAME: String, value: Boolean){
+        val editor: SharedPreferences.Editor = sharedPref.edit()
+        editor.putBoolean(KEY_NAME, value)
+        editor.apply()
+    }
+
     fun getValueInt(KEY_NAME: String): Int? {
         return sharedPref.getInt(KEY_NAME, 0)
     }

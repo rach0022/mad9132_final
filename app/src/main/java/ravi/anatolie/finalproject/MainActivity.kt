@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         // check if we have a repos key value set if not lets just set a default value
         if(sharedPreferences.contains(getString(R.string.repos_key))) {
             binding.minReposEditText.setText(sharedPreferences.getValueString(getString(R.string.repos_key)))
+//            sharedPreferences.removeValue()
         } else {
             binding.minReposEditText.setText("0")
         }
@@ -76,9 +77,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         // check if we have anything saved for the page key
-//        if(sharedPreferences.contains(getString(R.string.page_size_key))) {
-//            binding.perPageNumberPicker.value = sharedPreferences.getValueString(getString(R.string.page_size_key)).toString().toInt()
-//        }
+        if(sharedPreferences.contains(getString(R.string.page_size_key))) {
+            binding.perPageNumberPicker.value = sharedPreferences.getValueInt(getString(R.string.page_size_key))!!
+        }
 
         // all 3 overrides are required
         // these are the text change listeners that will run the code supplied when the following events happen
@@ -119,7 +120,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // since number picker always has a value lets just save whatever is in there
-        sharedPreferences.setValueString(getString(R.string.page_size_key), binding.perPageNumberPicker.toString())
+        sharedPreferences.setValueInt(getString(R.string.page_size_key), binding.perPageNumberPicker.value)
     }
     // endregion
 
